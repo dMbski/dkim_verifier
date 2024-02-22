@@ -8,6 +8,13 @@ All notable changes to this project will be documented in this file.
 
 ### Enhancements
 
+- Improved table views for sign rules and DKIM keys (#248, #305).
+  E.g. it is now possible to delete multiple entries at once.
+
+## 5.4.0 (2023-11-16)
+
+### Enhancements
+
 - Added support for using the Brand Indicators for Message Identification (BIMI)
   when showing favicons is enabled (#242).
 - Added the possibility to show a favicon for a specific From address or AUID (#107).
@@ -27,7 +34,8 @@ All notable changes to this project will be documented in this file.
 ### Other
 
 - Added Polish translation (by dMbski) (#392).
-- Updated default rules and favicons (#387, #393).
+- Options navigation is now flat.
+- Updated default rules and favicons (#387, #393, #399).
 
 ## 5.3.1 (2023-06-08)
 
