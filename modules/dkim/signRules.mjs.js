@@ -1,7 +1,7 @@
 /**
  * Check DKIM signing rules.
  *
- * Copyright (c) 2013-2018;2020-2023;2025 Philippe Lieser
+ * Copyright (c) 2013-2018;2020-2023;2025-2026 Philippe Lieser
  *
  * This software is licensed under the terms of the MIT License.
  *
@@ -12,11 +12,11 @@
 // @ts-check
 /* eslint-disable jsdoc/reject-any-type */
 ///<reference path="../../RuntimeMessage.d.ts" />
-///<reference path="../../experiments/mailUtils.d.ts" />
 
 import { Deferred, addrIsInDomain, copy, stringEndsWith, stringEqual } from "../utils.mjs.js";
 import ExtensionUtils from "../extensionUtils.mjs.js";
 import Logging from "../logging.mjs.js";
+import getBaseDomainFromAddr from "../publicSuffixList.mjs";
 import prefs from "../preferences.mjs.js";
 
 const log = Logging.getLogger("SignRules");
@@ -511,7 +511,7 @@ export default class SignRules {
 	static async addRule(domain, listId, addr, sdid, type, priority = null, enabled = true) {
 		let ruleDomain = domain;
 		if (!ruleDomain && !listId) {
-			ruleDomain = await browser.mailUtils.getBaseDomainFromAddr(addr);
+			ruleDomain = getBaseDomainFromAddr(addr);
 		}
 
 		if (!Object.values(/** @type {{[key: string]: number}} */(RULE_TYPE)).includes(type)) {
@@ -693,7 +693,7 @@ export default class SignRules {
 						break;
 					}
 					case AUTO_ADD_RULE_FOR.BASE_DOMAIN: {
-						domain = await browser.mailUtils.getBaseDomainFromAddr(fromAddress);
+						domain = getBaseDomainFromAddr(fromAddress);
 						fromAddressToAdd = "*";
 						break;
 					}

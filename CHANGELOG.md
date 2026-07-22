@@ -4,7 +4,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## Unreleased
+## 6.3.0 (2026-05-31)
 
 ### Enhancements
 
@@ -16,6 +16,10 @@ All notable changes to this project will be documented in this file.
 
 - Fixed tooltip for favicon in Thunderbird 152.
 - Fixed colors in options in Thunderbird 152.
+
+### Other
+
+- Updated default rules and favicons.
 
 ## 6.2.1 (2026-04-07)
 
